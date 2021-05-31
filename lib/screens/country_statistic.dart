@@ -45,14 +45,13 @@ class _HomeScreenState extends State<HomeScreen> {
     if (picked != null) {
       selectedDate2 = picked;
       setState(() {});
-      this.apiEachCountry();
     }
   }
 
   @override
   void initState() {
     selectedDate1 = DateFormat("dd-MM-yyyy").parse("24-01-2020");
-    selectedDate2 = DateTime.now();
+    selectedDate2 = DateTime.now().subtract(Duration(days:1));
     super.initState();
   }
 
@@ -228,7 +227,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           );
                         case ConnectionState.waiting:
-                          return Text('Loading....');
+                          return Center(child:CircularProgressIndicator());
                         default:
                           if (snapshot.hasError)
                             return Text('Error: ${snapshot.error}');
@@ -272,29 +271,6 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ],
-        ),
-      ),
-      // body: Text('Some'),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // print(DateFormat('dd-MM-yyyy')
-          //     .format(proValue.selectedDate1.toLocal()));
-          // print(DateFormat('dd-MM-yyyy')
-          //     .format(proValue.selectedDate2.toLocal()));
-          // print(proValue.item);
-          // CoronaService net = CoronaService();
-          // final some = net.getEachCountryData(
-          //     timeFrom: proValue.selectedDate1.toString(),
-          //     timeTo: proValue.selectedDate2.toString());
-          // CoronaService ob = CoronaService();
-          // var item = ob.getEachCountryData();
-          // print(item);
-          // print(proValue.defaultSlug);
-          // apiEachCountry();
-        },
-        child: Icon(
-          Icons.add,
-          color: Colors.white,
         ),
       ),
     );
