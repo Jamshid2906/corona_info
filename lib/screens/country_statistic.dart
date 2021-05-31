@@ -215,12 +215,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                                 Counter(
                                   color: kDeathColor,
-                                  number: snapshot.data['deaths'],
+                                  number: snapshot.data['deaths'] ?? 0,
                                   title: "O'limlar!",
                                 ),
                                 Counter(
                                   color: kRecovercolor,
-                                  number: snapshot.data['recovered'],
+                                  number: snapshot.data['recovered'] ?? 0,
                                   title: "Tuzalganlar!",
                                 ),
                               ],
