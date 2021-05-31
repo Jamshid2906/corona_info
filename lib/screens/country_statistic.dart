@@ -51,6 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
       selectedDate2 = picked;
       setState(() {});
       this.apiEachCountry();
+      
     }
   }
 
