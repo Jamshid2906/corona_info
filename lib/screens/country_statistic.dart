@@ -28,8 +28,8 @@ class _HomeScreenState extends State<HomeScreen> {
     final DateTime picked = await showDatePicker(
         context: context,
         initialDate: selectedDate1,
-        firstDate: DateTime(2020, 1),
-        lastDate: DateTime.now());
+        firstDate: DateTime(2020, 1,23),
+        lastDate: DateTime.now().subtract(Duration(days: 2)));
     if (picked != null) {
       selectedDate1 = picked;
       setState(() {});
@@ -40,8 +40,8 @@ class _HomeScreenState extends State<HomeScreen> {
     final DateTime picked = await showDatePicker(
         context: context,
         initialDate: selectedDate2,
-        firstDate: DateTime(2020, 1),
-        lastDate: DateTime.now());
+        firstDate: DateTime(2020, 1,24),
+        lastDate: DateTime.now().subtract(Duration(days: 2)));
     if (picked != null) {
       selectedDate2 = picked;
       setState(() {});
@@ -51,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     selectedDate1 = DateFormat("dd-MM-yyyy").parse("24-01-2020");
-    selectedDate2 = DateTime.now().subtract(Duration(days:1));
+    selectedDate2 = DateTime.now().subtract(Duration(days:2));
     super.initState();
   }
 
