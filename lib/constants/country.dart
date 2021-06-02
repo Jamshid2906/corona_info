@@ -283,22 +283,12 @@ List<Map<String, String>> flagCodes = [
   },
   {"alpha2Code": "GB", "name": "United Kingdom", "slug": "united-kingdom"},
   {"alpha2Code": "US", "name": "United States", "slug": "united-states"},
-  {
-    "alpha2Code": "VI",
-    "name": "United States Virgin Islands",
-    "slug": "united-states-virgin-islands"
-  },
   {"alpha2Code": "UY", "name": "Uruguay", "slug": "uruguay"},
   {"alpha2Code": "UZ", "name": "Uzbekistan", "slug": "uzbekistan"},
   {"alpha2Code": "VU", "name": "Vanuatu", "slug": "vanuatu"},
   {"alpha2Code": "VA", "name": "Vatican City", "slug": "vatican-city"},
   {"alpha2Code": "VE", "name": "Venezuela", "slug": "venezuela"},
   {"alpha2Code": "VN", "name": "Vietnam", "slug": "vietnam"},
-  {
-    "alpha2Code": "WF",
-    "name": "Wallis and Futuna",
-    "slug": "wallis-and-futuna"
-  },
   {"alpha2Code": "EH", "name": "Western Sahara", "slug": "western-sahara"},
   {"alpha2Code": "YE", "name": "Yemen", "slug": "yemen"},
   {"alpha2Code": "ZM", "name": "Zambia", "slug": "zambia"},

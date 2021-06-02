@@ -47,8 +47,6 @@ class CoronaService {
       'deaths'    : res2['deaths']    - res1['deaths'],
       'recovered' : res2['recovered'] - res1['recovered']
     });
-    print("line 50 $response");
-    print(slug);
     return response;
   }
 }
