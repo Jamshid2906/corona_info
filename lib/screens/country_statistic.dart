@@ -1,12 +1,14 @@
 import 'package:covid_19/constants/country.dart';
+import 'package:covid_19/screens/home.dart';
 import 'package:covid_19/services/CoronaService.dart';
 import 'package:covid_19/widgets/counter.dart';
 import 'package:covid_19/widgets/my_header.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
-
+import 'package:covid_19/config/sizer.dart';
 import '../constants/constant.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 class HomeScreen extends StatefulWidget {
   // static Widget screen() => ChangeNotifierProvider(
@@ -57,6 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -65,7 +68,10 @@ class _HomeScreenState extends State<HomeScreen> {
               image: "assets/icons/Drcorona.svg",
               textTop: "Uyda",
               textBottom: "qoling!",
+              goToWidget: MyHomePage(),
+              goToWidgetBool: true,
               offset: offset,
+              is_bool: true,
             ),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 20),
@@ -95,7 +101,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                     items: flagCodes.map((value) {
                       return DropdownMenuItem(
-                        child: Text(value['name']),
+                        child: AutoSizeText(value['name']),
                         value: value['slug'],
                       );
                     }).toList(),
@@ -108,52 +114,56 @@ class _HomeScreenState extends State<HomeScreen> {
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Column(
                 children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      InkWell(
-                        child: Container(
-                          width: 150,
-                          height: 40,
-                          decoration: BoxDecoration(
-                              borderRadius:
-                              BorderRadius.all(Radius.circular(8)),
-                              border:
-                              Border.all(width: 2, color: Colors.black45)),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(Icons.date_range),
-                              Text(DateFormat('dd-MM-yyyy')
-                                  .format(selectedDate1.toLocal()))
-                            ],
+                  SingleChildScrollView(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        InkWell(
+                          child: Container(
+                            width: 150,
+                            height: 40,
+                            decoration: BoxDecoration(
+                                borderRadius:
+                                BorderRadius.all(Radius.circular(8)),
+                                border:
+                                Border.all(width: 2, color: Colors.black45)),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(Icons.date_range),
+                                AutoSizeText(DateFormat('dd-MM-yyyy')
+                                    .format(selectedDate1.toLocal()))
+                              ],
+                            ),
                           ),
+                          onTap: () => selectDate1(context),
                         ),
-                        onTap: () => selectDate1(context),
-                      ),
-                      InkWell(
-                        child: Container(
-                          width: 150,
-                          height: 40,
-                          decoration: BoxDecoration(
-                              borderRadius:
-                              BorderRadius.all(Radius.circular(8)),
-                              border:
-                              Border.all(width: 2, color: Colors.black45)),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(Icons.date_range),
-                              Text(
-                                DateFormat('dd-MM-yyyy')
-                                    .format(selectedDate2.toLocal()),
-                              )
-                            ],
+                        InkWell(
+                          child: Expanded(
+                            child: Container(
+                              width: 150,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                  borderRadius:
+                                  BorderRadius.all(Radius.circular(8)),
+                                  border:
+                                  Border.all(width: 2, color: Colors.black45)),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(Icons.date_range),
+                                  AutoSizeText(
+                                    DateFormat('dd-MM-yyyy')
+                                        .format(selectedDate2.toLocal()),
+                                  )
+                                ],
+                              ),
+                            ),
                           ),
+                          onTap: () => selectDate2(context),
                         ),
-                        onTap: () => selectDate2(context),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                   SizedBox(
                     height: 15,
@@ -240,7 +250,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      Text(
+                      AutoSizeText(
                         "Virus tarqalishi",
                         style: kTitleTextstyle,
                       ),
@@ -264,7 +274,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     child: Image.asset(
                       "assets/images/map.png",
-                      fit: BoxFit.contain,
+                      fit: BoxFit.fill,
                     ),
                   ),
                 ],

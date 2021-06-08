@@ -1,7 +1,9 @@
+import 'package:covid_19/config/sizer.dart';
 import 'package:covid_19/screens/home.dart';
 import 'package:flutter/material.dart';
 import 'package:covid_19/constants/constant.dart';
 import 'package:splash_screen_view/SplashScreenView.dart';
+import 'package:covid_19/config/sizer.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,7 +11,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+        return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Covid 19',
         theme: ThemeData(
@@ -22,15 +24,15 @@ class MyApp extends StatelessWidget {
         home: SplashScreenView(
             navigateRoute: MyHomePage(),
             duration: 2000,
-            imageSize: 370,
+            imageSize: 370 ,
             imageSrc: 'assets/images/home_corona.jpg',
             text: "Corona Info",
             textType: TextType.ScaleAnimatedText,
             textStyle: TextStyle(
-              fontSize: 30.0,
+              fontSize: 30,
             ),
             backgroundColor: Colors.white,
           )
-        );
-  }
+      );
+      }
 }

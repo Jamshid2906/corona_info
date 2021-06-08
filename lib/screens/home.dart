@@ -6,7 +6,7 @@ import 'package:covid_19/widgets/my_header.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:covid_19/models/CoronaNewModel.dart';
-
+import 'package:covid_19/config/sizer.dart';
 class MyHomePage extends StatefulWidget {
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -41,6 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Scaffold(
       body: SingleChildScrollView(
         controller: controller,
@@ -50,7 +51,9 @@ class _MyHomePageState extends State<MyHomePage> {
               image: "assets/icons/Drcorona.svg",
               textTop: "Uyda",
               textBottom: "qoling!",
+              goToWidgetBool: false,
               offset: offset,
+              is_bool: false,
             ),
             SizedBox(height: 5),
             Padding(
@@ -167,7 +170,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     child: Image.asset(
                       "assets/images/map.png",
-                      fit: BoxFit.contain,
+                      fit: BoxFit.fill,
                     ),
                   ),
                 ],

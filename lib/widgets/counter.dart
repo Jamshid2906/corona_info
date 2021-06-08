@@ -1,3 +1,5 @@
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:covid_19/config/sizer.dart';
 import 'package:covid_19/constants/constant.dart';
 import 'package:flutter/material.dart';
 
@@ -36,7 +38,7 @@ class Counter extends StatelessWidget {
           ),
         ),
         SizedBox(height: 10),
-        Text(
+        AutoSizeText(
           "$number",
           style: TextStyle(
             fontSize: 20,

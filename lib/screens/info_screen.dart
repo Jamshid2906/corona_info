@@ -1,9 +1,9 @@
 import 'package:covid_19/constants/constant.dart';
+import 'package:covid_19/screens/country_statistic.dart';
 import 'package:covid_19/widgets/my_header.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-
+import 'package:covid_19/config/sizer.dart';
 class InfoScreen extends StatefulWidget {
   @override
   _InfoScreenState createState() => _InfoScreenState();
@@ -37,6 +37,7 @@ class _InfoScreenState extends State<InfoScreen> {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Scaffold(
       body: SingleChildScrollView(
         controller: controller,
@@ -46,8 +47,11 @@ class _InfoScreenState extends State<InfoScreen> {
             MyHeader(
               image: "assets/icons/coronadr.svg",
               textTop: "Covid-19",
+              goToWidget: HomeScreen(),
               textBottom: "haqida",
               offset: offset,
+              goToWidgetBool: true,
+              is_bool: false,
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),

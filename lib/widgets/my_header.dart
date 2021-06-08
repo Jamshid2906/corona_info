@@ -7,9 +7,12 @@ class MyHeader extends StatefulWidget {
   final String image;
   final String textTop;
   final String textBottom;
+  final bool is_bool;
+  final Widget goToWidget;
+  final bool goToWidgetBool;
   final double offset;
   const MyHeader(
-      {Key key, this.image, this.textTop, this.textBottom, this.offset})
+      {Key key, this.image, this.textTop, this.textBottom, this.offset,this.is_bool,this.goToWidget,this.goToWidgetBool})
       : super(key: key);
 
   @override
@@ -41,20 +44,43 @@ class _MyHeaderState extends State<MyHeader> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: <Widget>[
-            GestureDetector(
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+              (widget.goToWidgetBool) ? Align(
+              alignment: Alignment.topLeft,
+              child: GestureDetector(
               onTap: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return InfoScreen();
+                      return widget.goToWidget;
                     },
                   ),
                 );
               },
-              child: SvgPicture.asset("assets/icons/menu.svg"),
+              child: Icon(Icons.arrow_back,color: Colors.white,),
             ),
-            SizedBox(height: 20),
+            ) : Container(),
+             (widget.is_bool == true) ? Align(
+               alignment: Alignment.topRight,
+               child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return InfoScreen();
+                      },
+                    ),
+                  );
+                },
+                child: SvgPicture.asset("assets/icons/menu.svg"),
+                         ),
+             ) : Container() ,
+            ],),
+            (widget.goToWidgetBool ==false) ?  SizedBox(height: 20) : Container(),
             Expanded(
               child: Stack(
                 children: <Widget>[
